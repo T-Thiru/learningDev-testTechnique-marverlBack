@@ -1,0 +1,12 @@
+{
+  "name": "learningdev-testtechnique-marverlback",
+  "version": "1.0.0",
+  "description": "exercice sur un test technique partie Back du site Marvel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

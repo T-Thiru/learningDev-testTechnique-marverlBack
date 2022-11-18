@@ -183,7 +183,7 @@ app.get("/characters", async (req, res) => {
 
 app.get("/comics/:id", async (req, res) => {
   try {
-    console.log(req.params);
+    // console.log(req.params);
     const comicsCharacter = await axios.get(
       ` https://lereacteur-marvel-api.herokuapp.com/comics/${req.params.id}?apiKey=${process.env.API_KEY}`
     );
@@ -235,14 +235,14 @@ app.post("/character/favoris/", isAuthenticated, async (req, res) => {
 
 app.delete("/delete/character/favoris/", isAuthenticated, async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const favorisToDelete = await User.findById(req.body.user);
     console.log(favorisToDelete);
     favorisToDelete.favoris.characters.splice(
       favorisToDelete.favoris.characters.indexOf(req.body.favoris),
       1
     );
-    console.log(favorisToDelete);
+    // console.log(favorisToDelete);
 
     await favorisToDelete.save();
 
@@ -254,14 +254,14 @@ app.delete("/delete/character/favoris/", isAuthenticated, async (req, res) => {
 
 app.delete("/delete/comic/favoris/", isAuthenticated, async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const favorisToDelete = await User.findById(req.body.user);
     console.log(favorisToDelete);
     favorisToDelete.favoris.comics.splice(
       favorisToDelete.favoris.comics.indexOf(req.body.favoris),
       1
     );
-    console.log(favorisToDelete);
+    // console.log(favorisToDelete);
 
     await favorisToDelete.save();
 

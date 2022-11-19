@@ -115,7 +115,7 @@ app.get("/user/:id", async (req, res) => {
     // console.log(req.params)
 
     const favoris = await User.findById(req.params.id);
-    console.log(favoris);
+    // console.log(favoris);
     res.json(favoris.favoris);
   } catch (error) {
     res.status(400).json({ message: error.message });

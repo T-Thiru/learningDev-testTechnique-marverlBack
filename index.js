@@ -271,6 +271,21 @@ app.delete("/delete/comic/favoris/", isAuthenticated, async (req, res) => {
   }
 });
 
+app.get("/events", async (req, res) => {
+  try {
+    let limit = Number(req.query.limit);
+    let skip = Number(req.query.skip);
+
+    const events = await axios.get(
+      `https://gateway.marvel.com:443/v1/public/events?ts=1&apikey=${process.env.API_EVENTS}&hash=${process.env.API_SECRET}`
+    );
+    // console.log(events.data);
+    res.json(events.data);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 app.all("*", (req, res) => {
   res.status(404).json({
     message: "not available routes",

@@ -273,8 +273,10 @@ app.delete("/delete/comic/favoris/", isAuthenticated, async (req, res) => {
 
 app.get("/events", async (req, res) => {
   try {
+    console.log(req.query);
+    let title = String(req.query.name);
     let limit = Number(req.query.limit);
-    let skip = Number(req.query.skip);
+    let offset = Number(req.query.skip);
 
     const events = await axios.get(
       `https://gateway.marvel.com:443/v1/public/events?ts=1&apikey=${process.env.API_EVENTS}&hash=${process.env.API_SECRET}`
